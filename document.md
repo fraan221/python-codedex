@@ -410,4 +410,168 @@ print(f"Yay I got my lucky number {lucky_number}! 🍀")
 
 ---
 
+## 5. Lists
 
+### Store different items in lists and learn to use built-in functions and methods.
+
+#### Lists
+Lists are used to store multiple items in a single variable.
+
+Syntax for a list:
+
+~~~
+list_name = [item1, item2, item3, item4]
+~~~
+
+List are created using square brackets `[` and `]`. And the items are separated by `,` commas.
+
+Facts about lists:
+
+- List items allow duplicate values.
+- Lists can have values with different data types.
+- There's no limit to how much data a list can hold.
+
+#### Index
+
+An Index is an item's position in a list.
+
+Python is 0-indexed, meaning that the indices starts at 0:
+
+~~~
+vowels = ['a', 'e', 'i', 'o', 'u']
+# Index:   0    1    2    3    4
+~~~
+
+The output should be look like this:
+
+~~~
+print(vowels[0])     # Output: a
+print(vowels[1])     # Output: e
+print(vowels[2])     # Output: i
+print(vowels[3])     # Output: o
+print(vowels[4])     # Output: u
+~~~
+
+#### Negative Index
+
+An index can be positive or negative.
+
+If the index is negative, it starts from -1 (which is the last item of a list) and it goes backwards from there.
+
+~~~
+vowels = ['a', 'e', 'i', 'o', 'u']
+# Index:   0    1    2    3    4
+# Index:  -5   -4   -3   -2   -1
+~~~
+
+#### Slicing
+
+Slicing is where we can access certain parts of a sequence.
+
+Example:
+
+~~~
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+print(vowels[0 : 3])
+print(vowels[1 : 3])
+
+# Output:
+# ['a', 'e', 'i']
+# ['e', 'i']
+~~~
+
+It starts from the `start` index (inclusive) and ends before the `end` index (non-inclusive).
+
+#### Built-in functions
+
+Python comes with some built-in functions, includes ones specifically for lists.
+
+- The `len()` function returns the total length of a list.
+- The `max()` function returns the maximum value in a list.
+- The `min()` function returns the minimum value in a list.
+
+[All of Built-in Functions in Python](https://docs.python.org/3/library/functions.html)
+
+#### List Methods
+
+Python has a bunch of built-in list methods.
+
+Here are some of them:
+
+- `.append()` method adds an item to the end of the list.
+- `.insert()` method adds an item to a specific index.
+- `.remove()` method remove an item from a list based on the value.
+- `.pop()` method removes the item at a particular index.
+
+##### Differences between Built-in Functions and Built-in List Methods
+
+The Methods in a list uses the dot notation syntax on the list variable we create.
+Built-in functions can be called by themselves.
+
+Not all the Built-in Functions are defined to work with lists, the List Methods only work with lists.
+
+![List Methods](images/list-methods.png)
+
+#### Iterate Over a List
+
+##### for-in
+
+~~~
+snowfall = [0.3, 0.0, 0.0, 1.2, 3.9, 2.2, 0.8]
+
+for i in snowfall:
+  print(i)
+~~~
+
+##### for-in with range() and len()
+
+~~~
+snowfall = [0.3, 0.0, 0.0, 1.2, 3.9, 2.2, 0.8]
+
+for i in range(len(snowfall)):
+  print(snowfall[i])
+~~~
+
+#### Nested Lists
+
+A Nested List is a list of lists.
+
+Example
+~~~
+list = ['a', 'b', 'c', [1, 2, 3]]
+~~~
+
+Access the value of a Nested List
+~~~
+print(list[3][1])
+~~~
+
+#### Matrix
+If we create a list of items, and every item is a nested list of the same size, we get what is called a Matrix.
+
+Example
+~~~
+matrix = [[1, 2, 3, 4],
+          [5, 6, 7, 8],
+          [9, 10, 11, 12]]
+~~~
+
+
+---
+
+## 6. Function
+
+### Define and call a function - reusable block of code that performs a specific task.
+
+---
+
+## 7. Classes & Objects
+
+### Create your own data types and use them to model everyday objects with unique characteristics and behaviors.
+
+---
+
+## 8. Modules
+
+### Import built-in modules and learn how to create our own.
