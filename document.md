@@ -557,18 +557,203 @@ matrix = [[1, 2, 3, 4],
           [9, 10, 11, 12]]
 ~~~
 
-
 ---
 
 ## 6. Function
 
 ### Define and call a function - reusable block of code that performs a specific task.
 
+#### D.R.Y. - Don't Repeat Yourself
+
+Is a principle in software development aimed at reducing repetition and writing good clean code.
+Functions play a big part.
+
+A Function is a reusable block of code that performs a specific task.
+
+Basic Syntax
+
+~~~
+def name():
+  # The code inside
+~~~
+
+The common naming convention for functions is **snake_case**
+
+#### Differences between Parameter and Argument
+
+- The parameter is the variable listed inside the parenthesis in the function definition (when we define the function).
+- The argument is the value sent to the function (when we call the function).
+
+#### Return
+The `return` keyword is used to terminate a function and output a value.
+
+~~~
+def function_name():
+  # The code inside
+  return value
+~~~
+
+When we don't add it, Python will implicitly return the default value, `None`, as the return value.
+
+##### Print vs Return
+
+`print()` functions can be anywhere in the program - inside or outside of a function, whereas `return` is the output of a function; you don't need to print out whatever you are returning.
+
+Rules:
+
+- Use `return` in a function when you want to send value(s) from one point in the code to another.
+- Use `print()` in a function when you want to display some text to the user.
+
+#### Scope
+
+**Scope** determines where in the program a variable is visible and can be used.
+
+##### Types of Scope
+
+**Local Variable**
+~~~
+def add(x, y):
+  answer = x + y
+  return answer
+
+print(answer)
+~~~
+
+Output
+~~~
+NameError: name 'answer' is not defined
+~~~
+
+Global Variable
+~~~
+answer = 0
+
+def add(x, y):
+  answer = x + y
+  return answer
+
+add(3, 4)
+
+print(answer)
+~~~
+
+Output:
+~~~
+0
+~~~
+Note: `answer` is not 7. It's still 0 because if we create a variable with the same name inside a function, it will be a **local variable** and can only be used inside the function. The **global variable** with the same name will remain global and with the original value.
+
+#### Lambda Functions
+
+Lambda functions (also known as anonymous functions) are concise functions defined without a name.
+They are often used for short-lived tasks where a full function definition might seem verbose or unneeded.
+
+Syntax
+~~~
+lambda arguments: expression
+~~~
+
+Example
+~~~
+double = lambda x: x * 2
+
+print(double(4))
+# Output: 8
+~~~
+
+First, we use the reserved lambda keyword to begin defining the function. Then, we can use one or more arguments (separated by commas), followed by a : colon. On the other side of the colon is the expression that may use the arguments to produce an output.
+
+##### Use Cases
+
+When using functions like `map()` and `filter()` to perform operations on collections like lists, they require a function as one of their parameters.
+
+In that case, lambda functions enters in the action.
+
+~~~
+numbers = [1, 2, 3, 4, 5]
+
+tripled_numbers = list(map(lambda x: x * 3, numbers))
+
+odd_numbers = list(filter(lambda x: x % 2 == 1, numbers))
+
+print(tripled_numbers)  # Output: [3, 6, 9, 12, 15]
+print(odd_numbers)      # Output: [1, 3, 5]
+~~~
+
 ---
 
 ## 7. Classes & Objects
 
 ### Create your own data types and use them to model everyday objects with unique characteristics and behaviors.
+
+#### Classes
+
+With classes, we can create our own data types and use them to model everyday objects with unique characteristics and behaviors.
+
+Syntax
+~~~
+class Name:
+  # Attributes inside
+~~~
+The `class` keyword followed by class name creates the class. By convention, the class name is Capitalized.
+
+#### Objects
+
+An Object is an "instance" of a class. A class is simply a template for creating objects, which are individual copies of the class with actual values.
+
+Example to how create an Object
+~~~
+# Class we use in this example
+class Student:
+  student_id = 0
+  name = ''
+  year = 0
+  gpa = 0.0
+  enrolled = False
+~~~
+
+~~~
+# Creating the Object
+wednesday = Student()
+~~~
+
+~~~
+# Creating all the attributtes in `wednesday`
+wednesday.student_id = 1113
+wednesday.name = 'Wednesday Addams'
+wednesday.year = 11
+wednesday.gpa = 4.0
+wednesday.enrolled = True
+~~~
+
+~~~
+# Checking the values
+print(vars(wednesday))
+
+# Output: {'student_id': 1113, 'name': 'Wednesday Addams', 'year': 11, 'gpa': 4.0, 'enrolled': True}
+~~~
+
+#### The __init__() method
+
+Using the `__init__()` method is the easier way to initialize the new object.
+
+Example
+~~~
+# Creating the Class with __init__()
+class Student: 
+  def __init__(self, name, year, gpa, enrolled):
+    self.name = name
+    self.year = year
+    self.gpa = gpa
+    self.enrolled = enrolled
+~~~
+
+~~~
+# Creating the Object
+daniel = Student('Daniel Li', 10, 4.0, True)
+~~~
+
+
 
 ---
 
