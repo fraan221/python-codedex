@@ -381,17 +381,20 @@ for i in x:
 ![Python Cheatsheet](images/python-basics-cheatsheet.png)
 
 #### Nested Loops
+
 A nested loop is a loop with another loop inside.
 
 Example
-~~~
+
+```
 for i in range(1, 6):
   for j in range(1, 6):
     print(i * j)
-~~~
+```
 
 Example more complex
-~~~
+
+```
 import random
 
 lucky_number = random.randint(1, 9)
@@ -406,7 +409,7 @@ while not_found:
       print(i)
 
 print(f"Yay I got my lucky number {lucky_number}! 🍀")
-~~~
+```
 
 ---
 
@@ -415,13 +418,14 @@ print(f"Yay I got my lucky number {lucky_number}! 🍀")
 ### Store different items in lists and learn to use built-in functions and methods.
 
 #### Lists
+
 Lists are used to store multiple items in a single variable.
 
 Syntax for a list:
 
-~~~
+```
 list_name = [item1, item2, item3, item4]
-~~~
+```
 
 List are created using square brackets `[` and `]`. And the items are separated by `,` commas.
 
@@ -437,20 +441,20 @@ An Index is an item's position in a list.
 
 Python is 0-indexed, meaning that the indices starts at 0:
 
-~~~
+```
 vowels = ['a', 'e', 'i', 'o', 'u']
 # Index:   0    1    2    3    4
-~~~
+```
 
 The output should be look like this:
 
-~~~
+```
 print(vowels[0])     # Output: a
 print(vowels[1])     # Output: e
 print(vowels[2])     # Output: i
 print(vowels[3])     # Output: o
 print(vowels[4])     # Output: u
-~~~
+```
 
 #### Negative Index
 
@@ -458,11 +462,11 @@ An index can be positive or negative.
 
 If the index is negative, it starts from -1 (which is the last item of a list) and it goes backwards from there.
 
-~~~
+```
 vowels = ['a', 'e', 'i', 'o', 'u']
 # Index:   0    1    2    3    4
 # Index:  -5   -4   -3   -2   -1
-~~~
+```
 
 #### Slicing
 
@@ -470,7 +474,7 @@ Slicing is where we can access certain parts of a sequence.
 
 Example:
 
-~~~
+```
 vowels = ['a', 'e', 'i', 'o', 'u']
 
 print(vowels[0 : 3])
@@ -479,7 +483,7 @@ print(vowels[1 : 3])
 # Output:
 # ['a', 'e', 'i']
 # ['e', 'i']
-~~~
+```
 
 It starts from the `start` index (inclusive) and ends before the `end` index (non-inclusive).
 
@@ -517,45 +521,49 @@ Not all the Built-in Functions are defined to work with lists, the List Methods 
 
 ##### for-in
 
-~~~
+```
 snowfall = [0.3, 0.0, 0.0, 1.2, 3.9, 2.2, 0.8]
 
 for i in snowfall:
   print(i)
-~~~
+```
 
 ##### for-in with range() and len()
 
-~~~
+```
 snowfall = [0.3, 0.0, 0.0, 1.2, 3.9, 2.2, 0.8]
 
 for i in range(len(snowfall)):
   print(snowfall[i])
-~~~
+```
 
 #### Nested Lists
 
 A Nested List is a list of lists.
 
 Example
-~~~
+
+```
 list = ['a', 'b', 'c', [1, 2, 3]]
-~~~
+```
 
 Access the value of a Nested List
-~~~
+
+```
 print(list[3][1])
-~~~
+```
 
 #### Matrix
+
 If we create a list of items, and every item is a nested list of the same size, we get what is called a Matrix.
 
 Example
-~~~
+
+```
 matrix = [[1, 2, 3, 4],
           [5, 6, 7, 8],
           [9, 10, 11, 12]]
-~~~
+```
 
 ---
 
@@ -572,10 +580,10 @@ A Function is a reusable block of code that performs a specific task.
 
 Basic Syntax
 
-~~~
+```
 def name():
   # The code inside
-~~~
+```
 
 The common naming convention for functions is **snake_case**
 
@@ -585,13 +593,14 @@ The common naming convention for functions is **snake_case**
 - The argument is the value sent to the function (when we call the function).
 
 #### Return
+
 The `return` keyword is used to terminate a function and output a value.
 
-~~~
+```
 def function_name():
   # The code inside
   return value
-~~~
+```
 
 When we don't add it, Python will implicitly return the default value, `None`, as the return value.
 
@@ -611,21 +620,24 @@ Rules:
 ##### Types of Scope
 
 **Local Variable**
-~~~
+
+```
 def add(x, y):
   answer = x + y
   return answer
 
 print(answer)
-~~~
+```
 
 Output
-~~~
+
+```
 NameError: name 'answer' is not defined
-~~~
+```
 
 Global Variable
-~~~
+
+```
 answer = 0
 
 def add(x, y):
@@ -635,12 +647,14 @@ def add(x, y):
 add(3, 4)
 
 print(answer)
-~~~
+```
 
 Output:
-~~~
+
+```
 0
-~~~
+```
+
 Note: `answer` is not 7. It's still 0 because if we create a variable with the same name inside a function, it will be a **local variable** and can only be used inside the function. The **global variable** with the same name will remain global and with the original value.
 
 #### Lambda Functions
@@ -649,17 +663,19 @@ Lambda functions (also known as anonymous functions) are concise functions defin
 They are often used for short-lived tasks where a full function definition might seem verbose or unneeded.
 
 Syntax
-~~~
+
+```
 lambda arguments: expression
-~~~
+```
 
 Example
-~~~
+
+```
 double = lambda x: x * 2
 
 print(double(4))
 # Output: 8
-~~~
+```
 
 First, we use the reserved lambda keyword to begin defining the function. Then, we can use one or more arguments (separated by commas), followed by a : colon. On the other side of the colon is the expression that may use the arguments to produce an output.
 
@@ -669,7 +685,7 @@ When using functions like `map()` and `filter()` to perform operations on collec
 
 In that case, lambda functions enters in the action.
 
-~~~
+```
 numbers = [1, 2, 3, 4, 5]
 
 tripled_numbers = list(map(lambda x: x * 3, numbers))
@@ -678,7 +694,7 @@ odd_numbers = list(filter(lambda x: x % 2 == 1, numbers))
 
 print(tripled_numbers)  # Output: [3, 6, 9, 12, 15]
 print(odd_numbers)      # Output: [1, 3, 5]
-~~~
+```
 
 ---
 
@@ -691,10 +707,12 @@ print(odd_numbers)      # Output: [1, 3, 5]
 With classes, we can create our own data types and use them to model everyday objects with unique characteristics and behaviors.
 
 Syntax
-~~~
+
+```
 class Name:
   # Attributes inside
-~~~
+```
+
 The `class` keyword followed by class name creates the class. By convention, the class name is Capitalized.
 
 #### Objects
@@ -702,7 +720,8 @@ The `class` keyword followed by class name creates the class. By convention, the
 An Object is an "instance" of a class. A class is simply a template for creating objects, which are individual copies of the class with actual values.
 
 Example to how create an Object
-~~~
+
+```
 # Class we use in this example
 class Student:
   student_id = 0
@@ -710,53 +729,194 @@ class Student:
   year = 0
   gpa = 0.0
   enrolled = False
-~~~
+```
 
-~~~
+```
 # Creating the Object
 wednesday = Student()
-~~~
+```
 
-~~~
+```
 # Creating all the attributtes in `wednesday`
 wednesday.student_id = 1113
 wednesday.name = 'Wednesday Addams'
 wednesday.year = 11
 wednesday.gpa = 4.0
 wednesday.enrolled = True
-~~~
+```
 
-~~~
+```
 # Checking the values
 print(vars(wednesday))
 
 # Output: {'student_id': 1113, 'name': 'Wednesday Addams', 'year': 11, 'gpa': 4.0, 'enrolled': True}
-~~~
+```
 
-#### The __init__() method
+#### The **init**() method
 
 Using the `__init__()` method is the easier way to initialize the new object.
 
 Example
-~~~
+
+```
 # Creating the Class with __init__()
-class Student: 
+class Student:
   def __init__(self, name, year, gpa, enrolled):
     self.name = name
     self.year = year
     self.gpa = gpa
     self.enrolled = enrolled
-~~~
+```
 
-~~~
+```
 # Creating the Object
 daniel = Student('Daniel Li', 10, 4.0, True)
-~~~
-
-
+```
 
 ---
 
 ## 8. Modules
 
 ### Import built-in modules and learn how to create our own.
+
+#### Modules
+
+A **module** is any file with **.py** extension. But more ideally, a module contains statements, functions, and class definitions that revolve around a similar purpose.
+
+Python, comes with over [200 modules](https://docs.python.org/3/py-modindex.html) that we can use.
+
+##### Random Choices with Random module
+
+~~~
+import random
+
+dice = [1, 2, 3, 4, 5, 6]
+
+print(random.choices(dice))
+~~~
+
+- The `.choices()` method will randomly select a single item by default.
+
+Additionally, we can set how many items are randomly chosen with the `k` parameter.
+
+~~~
+import random
+
+dice = [1, 2, 3, 4, 5, 6]
+
+print(random.choices(dice, k=3))
+~~~
+
+Note: The `k` parameter only sets the length of the returned list from `.choices()`. This means that a list item may be included in the returned list more than once.
+
+##### Importing Multiple Modules
+
+Example 1
+~~~
+import random
+import math
+~~~
+
+Example 2
+~~~
+import random, math
+~~~
+
+These two code blocks do the exact thing.
+
+#### The from Keyword
+
+At the top of our file, this keyword goes before the `import` keyword.
+~~~
+from module_name import objects
+~~~
+
+We can use the `from` keyword to import one or more objects from a module.
+
+Example of picking more than a one objects in a module:
+~~~
+from random import choice, sample
+~~~
+
+Note: The `random.choice()` method randomly selects and returns a single element from a list.
+
+#### The as Keyword
+
+For aliasing a module, because their name is long we use `as` Keyword.
+
+~~~
+import random as rd
+~~~
+From this point of the program, the random module will be known as rd.
+
+##### Combining from and as Keyword
+
+~~~
+from random import sample as samp
+
+example = samp(['Stark', 'Targaryen', 'Baratheon', 'Greyjoy', 'Lannister'], 2)
+
+print('Example: ' + example[0] + ' ' + example[1])
+~~~
+
+##### datetime Module
+
+The `datetime` module specializes in dates and times.
+
+The `datetime` module has a `date` object that accepts the following properties:
+
+- `.year`: An integer between 1 and 9999
+- `.month`: An integer between 1 and 12
+- `.day`: An integer between 1 and the number of days in a given month
+
+Syntax
+~~~
+# datetime.date(year, month, day)
+
+import datetime
+
+release_date = datetime.date(1991, 2, 20)
+print(release_date)     # Output: 1991-02-20
+~~~
+The output shows the date object with a dash between each part. Also, any single number gets a leading zero 0.
+
+The `.year`, `.month` and `.day` properties can be accessed like with any other class object.
+~~~
+print(f'Python was released in {release_date.year}.')
+# Output: Python was released in 1991.
+~~~
+
+Retrieving the current date is possible with the `datetime.date.today()` method:
+~~~
+datetime.date.today()
+~~~
+
+#### Python Packages
+
+A collection of related modules with a similar purpose is a package.
+
+Python has over 400,000+ packages in the world. (Counting those on [PyPI](https://pypi.org/), the official Python Package Index).
+
+Python can tell a regular folder from a package if it has an **__init__.py** file, in addition to others **.py** files
+
+**Note:** Some large and specialized packages are called "libraries".
+
+Examples of Packages and Libraries in Python
+- 🔢 **NumPy**, **Pandas**, **SciPy** for data analysis.
+- 📊 **Matplotlib**, **Seaborn**, **Plotly** for data visualization.
+- 🧠 **Scikit-learn**, **TensorFlow** for machine learning.
+- 🌐 **Beautiful Soup** for web scraping.
+- 👾 **Pygame** for mini-games.
+- 🤖 **NLTK**, **OpenAI** for chatbots.
+- 🛠️ **OS**, **Requests** for automation.
+
+To install these packages and libraries we can use: **pip**
+
+In Windows, Mac, Some distros of Linux.
+
+BTW in Arch we use `sudo pacman -S python-xyz`.
+Where `xyz` is the name of package/library.
+
+![Python Cheatsheet II](images/python-basics-ii-cheatsheet.png)
+
+End :)

@@ -1,28 +1,23 @@
 def add(a, b):
-    result = a + b
     return a + b
 
 def subtract(a, b):
-    result = a - b
-    return result
+    return a - b
 
 def multiply(a, b):
-    result = a * b
-    return result
+    return a * b
 
 def divide(a, b):
-    result = a / b
-    return result
+    return a / b
 
 def exp(a, b):
-    result = a ** b
-    return result
+    return a ** b
 
-x = 2
-y = 2
-
-print(add(x,y))
-print(subtract(x,y))
-print(multiply(x,y))
-print(divide(x,y))
-print(exp(x,y))
+# x = 2
+# y = 2
+#
+# print(add(x,y))
+# print(subtract(x,y))
+# print(multiply(x,y))
+# print(divide(x,y))
+# print(exp(x,y))
