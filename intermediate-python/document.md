@@ -643,3 +643,146 @@ for square in square_generator(5):
 ## Testing
 
 ### Learn how to write basic unit tests in Python.
+
+#### Unit Tests
+
+**Unit testing** involves taking smaller pieces of a large program and checking that the code behaves as expected under various scenarios. A unit of code can be as simple as a small function or as complex as a large class.
+
+##### unittest Framework
+
+In Python, the unittest framework is a built-in module. It helps developers validate the behavior of their code, piece by piece. By isolating and testing each unit independently, we can verify their functionality and behavior.
+
+###### Using unittest
+
+```
+import unittest
+```
+
+###### Example
+
+We use .assertEqual in unittest to ensure two elements are equal to each other
+
+```
+assertEqual(a, b)
+## a == b
+```
+
+#### TestCase Class
+
+To create tests, you must create a class that inherits from `unittest.TestCase`.
+
+- **Naming Rule:** Every test method inside this class must start with the prefix `test_`. If it doesn't, the framework will ignore it.
+- **Isolation:** `unittest` initializes a brand new instance of the `TestCase` class before running each test method. This ensures that tests don't interfere with each other.
+
+##### Assert Methods
+
+Assertions are the tools you use to verify if the output of your code matches the expected result. They are accessed using `self` (which refers to the `TestCase` instance).
+
+- `self.assertEqual(a, b)`: Checks if `a == b`.
+- `self.assertTrue(x)`: Verifies that x is `True`.
+- `self.assertFalse(x)`: Verifies that x is `False`.
+- `self.assertIn(item, collection)`: Checks if an item exists inside a collection (like a string or a list).
+- `self.assertNotIn(item, collection)`: Checks the opposite.
+
+Example
+
+```
+import unittest
+
+# 1. The function we want to test
+def add(a, b):
+    return a + b
+
+# 2. The Test Class (Inherits from unittest.TestCase)
+class TestAddition(unittest.TestCase):
+
+    # 3. Test methods (Must start with 'test_')
+    def test_add_two_numbers(self):
+        result = add(2, 3)
+        self.assertEqual(result, 5)  # Verifies that 2 + 3 == 5
+
+    def test_text_contains_word(self):
+        text = 'Hello, World!'
+        self.assertTrue('Hello' in text) # Verifies boolean condition
+        self.assertIn('World', text)     # Verifies membership
+
+# 4. The Execution Block
+# This runs the tests only if the script is executed directly
+if __name__ == '__main__':
+    unittest.main()
+```
+
+#### Edge Cases
+
+An **edge case** is an extreme, unusual, or unexpected scenario in your software.
+
+For example: what happens if a function expects a string but receives an empty string ("") or an integer (123)?
+
+Good unit testing anticipates these edge cases to ensure the program doesn't crash unpredictably, but rather handles the bad data correctly.
+
+##### assertRaises()
+
+Sometimes, the correct and expected behavior of a function is to fail and throw a specific error (an Exception). To test if your code fails correctly, you use `.assertRaises()`.
+
+How it works: It is used as a context manager by the `with` keyword. It verifies that the code inside its block raises the exact error you specified. If the error is raised, the test passes.
+
+Example
+
+```
+import unittest
+
+class TestEdgeCases(unittest.TestCase):
+
+    def test_wrong_data_type_raises_error(self):
+        # We expect a TypeError because 123 is an int, not an iterable/string
+
+        with self.assertRaises(TypeError):
+            # This line WILL cause a TypeError, which makes the test PASS
+            self.assertIn('World', 123)
+
+```
+
+##### setUp() Method
+
+Executes automatically **before** every single test method is run.
+
+- **Purpose:** To initialize class objects, set up variables, or prepare the state so every test starts from scratch.
+
+##### tearDown() Method
+
+Executes automatically **after** every single test method finishes.
+
+- **Purpose:** To clean up resources left over after the test (e.g., closing open files, deleting objects, closing database connections).
+
+Example
+
+```
+import unittest
+
+# 1. The Class we want to test
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+# 2. The Test Class
+class TestCalculator(unittest.TestCase):
+
+    # Runs BEFORE each test
+    def setUp(self):
+        # Creates a fresh Calculator instance specifically for the current test
+        self.calculator = Calculator()
+
+    # Runs AFTER each test
+    def tearDown(self):
+        # Cleans up the instance (frees up memory/resources)
+        self.calculator = None
+
+    # 3. The actual tests
+    def test_addition(self):
+        # Uses the fresh instance created in setUp()
+        result = self.calculator.add(3, 5)
+        self.assertEqual(result, 8)
+
+if __name__ == '__main__':
+    unittest.main()
+```

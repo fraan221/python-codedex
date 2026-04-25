@@ -787,56 +787,60 @@ Python, comes with over [200 modules](https://docs.python.org/3/py-modindex.html
 
 ##### Random Choices with Random module
 
-~~~
+```
 import random
 
 dice = [1, 2, 3, 4, 5, 6]
 
 print(random.choices(dice))
-~~~
+```
 
 - The `.choices()` method will randomly select a single item by default.
 
 Additionally, we can set how many items are randomly chosen with the `k` parameter.
 
-~~~
+```
 import random
 
 dice = [1, 2, 3, 4, 5, 6]
 
 print(random.choices(dice, k=3))
-~~~
+```
 
 Note: The `k` parameter only sets the length of the returned list from `.choices()`. This means that a list item may be included in the returned list more than once.
 
 ##### Importing Multiple Modules
 
 Example 1
-~~~
+
+```
 import random
 import math
-~~~
+```
 
 Example 2
-~~~
+
+```
 import random, math
-~~~
+```
 
 These two code blocks do the exact thing.
 
 #### The from Keyword
 
 At the top of our file, this keyword goes before the `import` keyword.
-~~~
+
+```
 from module_name import objects
-~~~
+```
 
 We can use the `from` keyword to import one or more objects from a module.
 
 Example of picking more than a one objects in a module:
-~~~
+
+```
 from random import choice, sample
-~~~
+```
 
 Note: The `random.choice()` method randomly selects and returns a single element from a list.
 
@@ -844,20 +848,21 @@ Note: The `random.choice()` method randomly selects and returns a single element
 
 For aliasing a module, because their name is long we use `as` Keyword.
 
-~~~
+```
 import random as rd
-~~~
+```
+
 From this point of the program, the random module will be known as rd.
 
 ##### Combining from and as Keyword
 
-~~~
+```
 from random import sample as samp
 
 example = samp(['Stark', 'Targaryen', 'Baratheon', 'Greyjoy', 'Lannister'], 2)
 
 print('Example: ' + example[0] + ' ' + example[1])
-~~~
+```
 
 ##### datetime Module
 
@@ -870,26 +875,30 @@ The `datetime` module has a `date` object that accepts the following properties:
 - `.day`: An integer between 1 and the number of days in a given month
 
 Syntax
-~~~
+
+```
 # datetime.date(year, month, day)
 
 import datetime
 
 release_date = datetime.date(1991, 2, 20)
 print(release_date)     # Output: 1991-02-20
-~~~
+```
+
 The output shows the date object with a dash between each part. Also, any single number gets a leading zero 0.
 
 The `.year`, `.month` and `.day` properties can be accessed like with any other class object.
-~~~
+
+```
 print(f'Python was released in {release_date.year}.')
 # Output: Python was released in 1991.
-~~~
+```
 
 Retrieving the current date is possible with the `datetime.date.today()` method:
-~~~
+
+```
 datetime.date.today()
-~~~
+```
 
 #### Python Packages
 
@@ -897,11 +906,12 @@ A collection of related modules with a similar purpose is a package.
 
 Python has over 400,000+ packages in the world. (Counting those on [PyPI](https://pypi.org/), the official Python Package Index).
 
-Python can tell a regular folder from a package if it has an **__init__.py** file, in addition to others **.py** files
+Python can tell a regular folder from a package if it has an ****init**.py** file, in addition to others **.py** files
 
 **Note:** Some large and specialized packages are called "libraries".
 
 Examples of Packages and Libraries in Python
+
 - 🔢 **NumPy**, **Pandas**, **SciPy** for data analysis.
 - 📊 **Matplotlib**, **Seaborn**, **Plotly** for data visualization.
 - 🧠 **Scikit-learn**, **TensorFlow** for machine learning.
