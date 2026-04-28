@@ -16,7 +16,7 @@ This means that they are **immutable**, which means their values cannot change. 
 
 Creating a Tuple
 
-```
+```python
 person = ('Kat', 24)
 navy_blue = (0, 0, 128)
 ```
@@ -25,7 +25,7 @@ Tuples are created using `(` `)` parentheses.
 
 They are also defined without parentheses and their items can be a mix of any data type. They can have one or more items.
 
-```
+```python
 # valid tuple
 t1 = ('hi',)
 
@@ -42,7 +42,7 @@ If there is only one item, make sure there is a comma `,` beside it.
 
 Tuples are also unpackable which allows us to easily turn them into variables. Most commonly, tuples are used as return values allowing us to easily work with large data sets.
 
-```
+```python
 full_name = ('Ada', 'Lovelace')
 
 first_name = full_name[0]
@@ -52,7 +52,7 @@ print(first_name) # Output: Ada
 
 Combining Tuples
 
-```
+```python
 # Combining tuples
 t1 = 'a',
 t2 = 'b',
@@ -67,7 +67,7 @@ Dictionaries are ordered collections that store and access data using `key`:`val
 
 Syntax
 
-```
+```python
 dictionary = {
   key1: value1,
   key2: value2,
@@ -77,7 +77,7 @@ dictionary = {
 
 Example
 
-```
+```python
 laptop = {
   'brand': 'Apple',
   'model': 'Macbook Pro',
@@ -86,15 +86,15 @@ laptop = {
 }
 ```
 
-Accesing the info in the Dictionary
+Accessing the info in the Dictionary
 
-```
+```python
 print(laptop['model']) # Output: Macbook Pro
 ```
 
 Modifying dictionary elements
 
-```
+```python
 laptop['year'] = 2026
 print('Updated year:', laptop['year'])
 ```
@@ -107,7 +107,7 @@ print('Updated year:', laptop['year'])
 
 Example
 
-```
+```python
 print('Keys:', laptop.keys())
 print('Values:', laptop.values())
 print('Items:', laptop.items())
@@ -134,13 +134,13 @@ Sets do not have an inherent order.
 
 Syntax
 
-```
+```python
 set_example = {val1, val2, val3}
 ```
 
 Example
 
-```
+```python
 fruits = {'🍎 apple', '🍌 banana', '🍊 orange'}
 ```
 
@@ -156,7 +156,7 @@ Sets to combine sets, find common items, or filtering out items
 
 Example
 
-```
+```python
 set1 = {1, 2, 3, 4}
 set2 = {3, 4, 5, 6}
 
@@ -181,7 +181,7 @@ print(difference_result)
 
 Example 1.0
 
-```
+```python
 set1 = {1, 2, 3, 4}
 set2 = {3, 4, 5, 6}
 
@@ -206,7 +206,7 @@ print(difference_result)
 
 Methods for common operations
 
-```
+```python
 my_set = {1, 2, 3}
 
 my_set.add(4)
@@ -237,7 +237,7 @@ File I/O (Input/Output) Handling let us interact with external files for various
 
 ##### Opening Files
 
-```
+```python
 file = open(file_path, mode)
 ```
 
@@ -258,7 +258,7 @@ There are three modes you can open a file with:
 
 ##### Writing Files
 
-```
+```python
 file.write('text')
 ```
 
@@ -266,7 +266,7 @@ A string is passed to the `write()` method, and written to the file.
 
 You can also write multiple lines to a file at once with the `writelines()` method:
 
-```
+```python
 lines = ['This is a line.\n', 'This is the next line.\n']
 
 file.writelines(lines)
@@ -279,7 +279,7 @@ The `writelines()` method takes a list of lines and writes them to the file.
 The `read()` method lets you read the entire content of a file.
 This method can be saved to a variable and printed to the terminal:
 
-```
+```python
 file = open('filename.txt', 'r')
 
 content = file.read()
@@ -290,7 +290,7 @@ print(content)
 
 The `.readline()` method lets you read a file one line at a time:
 
-```
+```python
 line1 = file.readline()  # Read the first line
 print(line1, end='')     # Printing the first line
 
@@ -304,7 +304,7 @@ To print each line on a single line without adding a `'\n'` newline character at
 
 The `.readlines()` method lets you read all lines in a list:
 
-```
+```python
 lines = file.readlines()
 
 for line in lines:
@@ -315,7 +315,7 @@ for line in lines:
 
 To open a file, handle it, and close it automatically:
 
-```
+```python
 with open('filename', 'r') as f:
   # handle file here
 ```
@@ -328,7 +328,7 @@ To prevent a file from remaining open if an error occurs, there are two main app
 
 - `try-finally` block: This is the manual approach. The code inside the finally block executes no matter what happens (even if an exception is raised).
 
-```
+```python
 try:
     file = open('example.txt', 'r')
 finally:
@@ -337,7 +337,7 @@ finally:
 
 - `with` statement (Recommended): This acts as a Context Manager that automatically closes the file when the block ends, without the need to explicitly call .close().
 
-```
+```python
 with open('example.txt', 'r') as file:
 content = file.read()
 ```
@@ -370,7 +370,7 @@ To read a CSV file, use the `csv.reader()` method. It reads the file and returns
 
 - **Crucial Tip:** Always include encoding='utf8' when opening the file to prevent decoding errors (very common depending on the IDE or OS you are using).
 
-```
+```python
 import csv
 
 # Open the file in 'read' mode ('r') with UTF-8 encoding
@@ -390,7 +390,7 @@ To write data—typically structured as a list of lists—into a CSV, use the `c
 
 - `.writerows()`: A writer method that takes an iterable (like a list of lists) and writes multiple rows at once.
 
-```
+```python
 import csv
 
 # Data structured as a list of lists
@@ -429,15 +429,15 @@ Because of these rules, pure functions are highly predictable, reliable, and eas
 
 **Code Comparison: Pure vs. Impure**
 
-```
-# ❌ Impure Function
+```python
+# Impure Function
 # It has a "side effect" because it prints something to the terminal.
 def impure_squared(number):
     result = number ** 2
     print('The square of', number, 'is', result)  # This is the side effect!
     return result
 
-# ✅ Pure Function
+# Pure Function
 # It strictly takes an input, calculates, and returns the output. No side effects.
 def pure_squared(number):
     return number ** 2
@@ -449,7 +449,7 @@ In functional programming, higher-order functions can take other functions as ar
 
 ##### Example
 
-```
+```python
 # Define the Higher-order function
 def apply_operation(operation, numbers):
   result = []
@@ -474,7 +474,7 @@ print('Doubled Numbers:', doubled_numbers)
 
 ##### Result
 
-```
+```python
 Original Numbers: [1, 2, 3, 4, 5]
 Doubled Numbers: [2, 4, 6, 8, 10]
 ```
@@ -487,7 +487,7 @@ In Python, we can transform data using three powerful functions: `map()`, `filte
 
 Syntax:
 
-```
+```python
 map(function, data)
 ```
 
@@ -495,7 +495,7 @@ map(function, data)
 
 Example
 
-```
+```python
 def divide_by_2(x):
   return x / 2
 
@@ -511,7 +511,7 @@ print(list(halved_numbers))
 
 Syntax
 
-```
+```python
 filter(function, data)
 ```
 
@@ -519,7 +519,7 @@ Here, we select elements from the `data` that satisfy the given condition specif
 
 Example
 
-```
+```python
 def filter_even(x):
   return x % 2 == 0
 
@@ -532,7 +532,7 @@ print(list(even_numbers)) # Output: [2, 4]
 
 Syntax
 
-```
+```python
 from functools import reduce
 reduce(function, data, initial)
 ```
@@ -543,7 +543,7 @@ This function is ideal for tasks like summing up a list of numbers.
 
 Example
 
-```
+```python
 from functools import reduce
 
 def multiply(x, y):
@@ -575,7 +575,7 @@ List comprehensions do not change the original list.
 
 Example
 
-```
+```python
 # Original approach using a loop
 numbers = [1, 2, 3, 4, 5]
 squares = []
@@ -597,7 +597,7 @@ Functions that modify, extend, or wrap the behavior of another function dynamica
 Syntax & Example:
 It uses the @decorator_name syntax placed directly above the target function.
 
-```
+```python
 # 1. Define the decorator (the wrapper)
 
 def my_decorator(func):
@@ -625,7 +625,7 @@ Special functions that generate a sequence of values dynamically. Instead of sto
 Syntax & Example:
 Defined like a normal function, but uses the yield keyword instead of return.
 
-```
+```python
 # 1. Define the generator function using yield
 def square_generator(limit):
     num = 1
@@ -654,7 +654,7 @@ In Python, the unittest framework is a built-in module. It helps developers vali
 
 ###### Using unittest
 
-```
+```python
 import unittest
 ```
 
@@ -662,7 +662,7 @@ import unittest
 
 We use .assertEqual in unittest to ensure two elements are equal to each other
 
-```
+```python
 assertEqual(a, b)
 ## a == b
 ```
@@ -686,7 +686,7 @@ Assertions are the tools you use to verify if the output of your code matches th
 
 Example
 
-```
+```python
 import unittest
 
 # 1. The function we want to test
@@ -728,7 +728,7 @@ How it works: It is used as a context manager by the `with` keyword. It verifies
 
 Example
 
-```
+```python
 import unittest
 
 class TestEdgeCases(unittest.TestCase):
@@ -756,7 +756,7 @@ Executes automatically **after** every single test method finishes.
 
 Example
 
-```
+```python
 import unittest
 
 # 1. The Class we want to test
